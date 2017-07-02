@@ -10,7 +10,7 @@
 
 About Rek'sai
 ------
-Rek'sai is a wrapper for the Riot Games API written purely in Go. The name Rek'sai was chosen as a result of Rek'sai being the only champion, at the time of this packages' creation, in League of Legends that burrows underground similar to the Gopher.
+Rek'sai is a wrapper for the Riot Games API written purely in Go. The name Rek'sai was chosen as a result of Rek'sai being the only champion in League of Legends that burrows underground similar to the Gopher.
 
 Usage
 ------
