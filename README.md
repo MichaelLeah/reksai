@@ -1,4 +1,10 @@
-<p align="center"><img src="http://i.imgur.com/7Bsxk7D.png"></p>
+<p align="center">
+    <img src="http://i.imgur.com/7Bsxk7D.png">
+    ![Travis Build Status](https://travis-ci.org/MichaelLeah/reksai.svg?branch=master)
+    [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+</p>
+
+
 
 About Rek'sai
 ------
