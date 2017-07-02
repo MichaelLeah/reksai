@@ -1,7 +1,7 @@
 <p align="center">
-    <img src="http://i.imgur.com/7Bsxk7D.png">
-    ![Travis Build Status](https://travis-ci.org/MichaelLeah/reksai.svg?branch=master)
-    [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+    <img src="http://i.imgur.com/7Bsxk7D.png" alt="Rek'sai Image created by Riot Games">
+    <img src="https://travis-ci.org/MichaelLeah/reksai.svg?branch=master" alt="Travis CI Build"/>
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"/>
 </p>
 
 
