@@ -4,6 +4,7 @@
 <p align="center">
     <img src="https://travis-ci.org/MichaelLeah/reksai.svg?branch=master" alt="Travis CI Build"/>
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"/>
+    <a href="https://godoc.org/github.com/MichaelLeah/reksai"><img src="https://godoc.org/github.com/MichaelLeah/reksai?status.svg" alt="GoDoc"></a>
 </p>
 
 
