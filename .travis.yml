@@ -3,5 +3,5 @@ branches:
   only:
     - master
 
-scripts:
+script:
    - go test ./tests -v
