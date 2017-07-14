@@ -4,13 +4,13 @@ import (
 	"os"
 )
 
-// VERSION is the current version of the API that this wrapper supports
+// VERSION is the current version of the API that this wrapper supports.
 const VERSION = "v3"
 
-// API_KEY is a required environment variable required for all calls to the Riot Games API
+// API_KEY is a required environment variable required for all calls to the Riot Games API.
 var API_KEY = os.Getenv("API_KEY")
 
-// REGIONS acts to map a given region to their respective endpoints
+// REGIONS acts to map a given region to their respective domain for use in building up request endpoints.
 var REGIONS = map[string]string{
 	"BR":   "br1",
 	"EUNE": "eun1",
