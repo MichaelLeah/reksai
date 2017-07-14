@@ -4,4 +4,4 @@ branches:
     - master
 
 scripts:
-   - go test -v
+   - go test ./tests -v
