@@ -6,4 +6,4 @@
 package reksai
 
 // Version is the currently supported Riot Games API Version for package reksai.
-const Version string = "V3"
+const Version string = "v3"
