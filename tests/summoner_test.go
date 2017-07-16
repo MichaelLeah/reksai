@@ -13,8 +13,7 @@ func TestByNameWithValidResponse(t *testing.T) {
 	gock.New("https://euw1.api.riotgames.com").
 		Get("/lol/summoner/v3/summoners/by-name/pigeon").
 		Reply(200).
-		JSON(map[string]interface{}{"profileIconId": 1670, "name": "Pigeon", "summonerLevel": 30, "accountId": 28994723, "id": 24537198, "revisionDate": 1500117684000}).
-		SetHeader("X-Riot-Token", "")
+		JSON(map[string]interface{}{"profileIconId": 1670, "name": "Pigeon", "summonerLevel": 30, "accountId": 28994723, "id": 24537198, "revisionDate": 1500117684000})
 
 	s, err := reksai.Summoner{}.ByName("pigeon", "EUW")
 

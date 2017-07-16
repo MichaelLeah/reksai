@@ -12,11 +12,6 @@ type Region struct {
 	Host              string
 }
 
-// Empty checks whether a Region struct has any content
-func (r Region) Empty() bool {
-	return r == *new(Region)
-}
-
 // Regions maps a given region code to the necessary request information for that service platform.
 var Regions = map[RegionCode]Region{
 	"BR": Region{

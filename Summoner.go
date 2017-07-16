@@ -3,7 +3,6 @@ package reksai
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
@@ -22,8 +21,8 @@ type Summoner struct {
 // ByName queries the /summoners/by-name/{name} endpoint and attempts to create a Summoner struct instance
 // from the result. Failure at any point will return an error to be handle.
 func (s Summoner) ByName(name string, region RegionCode) (summoner *Summoner, err error) {
-	r := Regions[region]
-	if r.Empty() {
+	r, found := Regions[region]
+	if !found {
 		return nil, fmt.Errorf("unable to get region host information for: %v", region)
 	}
 
@@ -48,13 +47,9 @@ func (s Summoner) ByName(name string, region RegionCode) (summoner *Summoner, er
 		return nil, fmt.Errorf("request to api failed with: %v", resp.Status)
 	}
 
-	respBody, err := ioutil.ReadAll(resp.Body)
+	err = json.NewDecoder(resp.Body).Decode(&summoner)
 	if err != nil {
-		return nil, fmt.Errorf("unable to read response body: %v", err)
-	}
-
-	if err := json.Unmarshal([]byte(respBody), &summoner); err != nil {
-		return nil, fmt.Errorf("unable to unmarshal response body to summoner struct: %v", err)
+		return nil, fmt.Errorf("unable to decode response body to summoner struct: %v", err)
 	}
 
 	return summoner, nil
