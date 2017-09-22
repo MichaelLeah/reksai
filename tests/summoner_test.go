@@ -26,7 +26,7 @@ func TestByNameWithValidResponse(t *testing.T) {
 func TestByAccountWithValidResponse(t *testing.T) {
 	defer gock.Off()
 	gock.New("https://euw1.api.riotgames.com").
-		Get("/lol/summoner/v3/summoners/by-account/pigeon").
+		Get("/lol/summoner/v3/summoners/by-account/28994723").
 		Reply(200).
 		JSON(map[string]interface{}{"profileIconId": 1670, "name": "Pigeon", "summonerLevel": 30, "accountId": 28994723, "id": 24537198, "revisionDate": 1500117684000})
 
