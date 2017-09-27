@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"time"
 )
 
 // Summoner is a representation of the SummonerDTO returned from the api.
@@ -28,24 +27,15 @@ func (s Summoner) ByName(name string, region RegionCode) (summoner *Summoner, er
 
 	endpoint := fmt.Sprintf("https://%s/lol/summoner/%s/summoners/by-name/%s", r.Host, Version, name)
 
-	client := &http.Client{Timeout: 30 * time.Second}
-	req, err := http.NewRequest("GET", endpoint, nil)
-	if err != nil {
-		return nil, fmt.Errorf("unable to create new client for request: %v", err)
-	}
+	riot := RiotAPI{}
+	riot.SetAPIKey(os.Getenv("API_KEY"))
 
-	req.Header.Set("X-Riot-Token", os.Getenv("API_KEY"))
-
-	resp, err := client.Do(req)
+	resp, err := riot.Get(endpoint)
 	if err != nil {
-		return nil, fmt.Errorf("unable to complete request to endpoint: %v", err)
+		return nil, err
 	}
 
 	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("request to api failed with: %v", resp.Status)
-	}
 
 	err = json.NewDecoder(resp.Body).Decode(&summoner)
 	if err != nil {
@@ -65,17 +55,12 @@ func (s Summoner) ByAccount(accountID int, region RegionCode) (summoner *Summone
 
 	endpoint := fmt.Sprintf("https://%s/lol/summoner/%s/summoners/by-account/%d", r.Host, Version, accountID)
 
-	client := &http.Client{Timeout: 30 * time.Second}
-	req, err := http.NewRequest("GET", endpoint, nil)
-	if err != nil {
-		return nil, fmt.Errorf("unable to create new client for request: %v", err)
-	}
+	riot := RiotAPI{}
+	riot.SetAPIKey(os.Getenv("API_KEY"))
 
-	req.Header.Set("X-Riot-Token", os.Getenv("API_KEY"))
-
-	resp, err := client.Do(req)
+	resp, err := riot.Get(endpoint)
 	if err != nil {
-		return nil, fmt.Errorf("unable to complete request to endpoint: %v", err)
+		return nil, err
 	}
 
 	defer resp.Body.Close()
